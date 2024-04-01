@@ -102,8 +102,16 @@
     <script>
         function insert(num)
         {
-            console.log(num)
+            var operadores = ['+','-','*','/'];
+
             var numero = document.getElementById('resultado').innerHTML;
+            
+            if(numero.length==0 && operadores.includes(num))
+                return;
+
+            if(operadores.includes(num) && operadores.includes(numero[numero.length-1]))
+                return;
+            
             document.getElementById('resultado').innerHTML = numero+num;
 
         }
